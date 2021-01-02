@@ -315,7 +315,7 @@ void AudioRenderer::QueueMixedBuffer(Buffer::Tag tag) {
 }
 
 void AudioRenderer::ReleaseAndQueueBuffers() {
-    const auto released_buffers{audio_out->GetTagsAndReleaseBuffers(stream)};
+    const auto released_buffers{audio_out->GetTagsAndReleaseBuffers(stream, 2)};
     for (const auto& tag : released_buffers) {
         QueueMixedBuffer(tag);
     }
